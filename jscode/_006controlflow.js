@@ -133,7 +133,105 @@ function forloopex(){
     console.log('Programm ends')
 }
 
-forloopex()
+function iterateoverarray(){
+    fruits = ["apple","banana","cherry","kiwi"]
+
+    for(let i=0; i<fruits.length; i++){
+        console.log(fruits[i])
+    }
+}
+
+/*nested for loop - for  iterating over rows and columns
+ outer for loop is for rows/ inner for loop is for columns
+ for(){
+    for(){
+    }
+ }
+
+*/
+
+function nestloop1(){
+    for(let i=1; i<=3; i++){
+          row = ""
+          for(let j=1;j<=5; j++){
+            row += "*"
+          }
+          console.log(row)
+    }
+}
+
+function count1to100(){
+    let row = ""
+    for(let i=1; i<=100; i++){
+        row += i+" "    
+        if(i%10 === 0){
+            console.log(row)
+            row=""
+        }
+        
+    }
+}
+
+/*
+*
+**
+***
+****
+*****
+*/
+function starpattern1(){
+
+    for(let i = 1; i<=5; i++){
+        row=""
+        for(let j=1;j<=i; j++){
+            row += "* "
+        }
+        console.log(row)
+    }
+
+}
+/*
+
+* * * * * 
+* * * * 
+* * * 
+* *
+*
+* 
+*/
+
+function starpattern2(){
+    for(let i = 5; i>=1; i--){
+        row=""
+        for(let j=1;j<=i; j++){
+            row += "* "
+        }
+        console.log(row)
+    }
+
+}
+/*
+        *
+      * *
+    * * *
+  * * * *
+* * * * *
+*/
+
+function starpattern3(){
+    let n=5
+    for(let i = 1; i<=n; i++){
+        row=""
+       for(let k =1; i<=(n-i);k++){
+        row += " "
+       }
+        for(let j=1;j<=i; j++){
+            row += "*"
+        }
+        console.log(row)
+    }
+}
+starpattern3()
 
 
 
