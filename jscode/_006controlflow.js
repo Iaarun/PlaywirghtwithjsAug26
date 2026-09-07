@@ -143,8 +143,8 @@ function iterateoverarray(){
 
 /*nested for loop - for  iterating over rows and columns
  outer for loop is for rows/ inner for loop is for columns
- for(){
-    for(){
+ for(initialization; condition; increment/decrement){
+    for(initialization; condition; increment/decrement){
     }
  }
 
@@ -231,9 +231,59 @@ function starpattern3(){
         console.log(row)
     }
 }
-starpattern3()
 
+/*
+ initialization;
+ while(condition){
+ code block}
+ increment/decrement
+ })
+*/
 
+function whileloopexample(){
+   let i=1;
+   while(i<=5){
+       console.log("Hello world!!!!")
+       i++   
+   }
+}
+// calculate the number of digits in a number 98989564- 8
 
+function countDigits(){
+    let num=    98989564
+     count=0
+    if(num==0){
+        count=1
+        return count
+    }
+    num = Math.abs(num)
+    while(num>0){
+        num = Math.floor(num/10)
+        count++
+    }
+    return count
+}
+// let digit= countDigits()
+// console.log("Number of digits: "+digit)
 
+function checkmathfloor(){
+    console.log(Math.floor(0.87))
 
+}
+
+/*
+  initialization;
+  do{
+  codeblock
+  increment/decrement
+  }while(condition)
+*/
+
+function dowhileexample(){
+    let i=1;
+    do{
+        console.log("Hello world!!!!")
+        i++
+    }while(i>=5)   
+}     
+dowhileexample()
