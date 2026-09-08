@@ -1,3 +1,5 @@
+const console = require("node:console");
+
 /*
  Arrays - non primitive data type
   used to store multiple values in a single variable
@@ -64,8 +66,40 @@ function arraysMethods(){
     }
 
     // to store new data
-    allCharacters[10] = "Hulk";
+    allCharacters[6] = "Hulk";
     console.log(allCharacters);
+    allCharacters.push("Hawkeye"); // adds at the end of the array
+    allCharacters.unshift("Black Panther"); // adds at the start of the array
+    console.log(allCharacters);
+  //  allCharacters.pop(); // removes last element
+  //  allCharacters.shift(); // removes first element
+    console.log(allCharacters);
+  const newsortedheros=  allCharacters.toSorted();
+    console.log("Sorted:\n" , newsortedheros);
+    console.log("Original: ",allCharacters);
+    console.log("Sort original array: ",allCharacters.sort());
+    const newreversedheros = allCharacters.toReversed();
+    console.log("Reversed: ", newreversedheros);
+    console.log("Original: ",allCharacters);
+    console.log("Reverse original array: ",allCharacters.reverse());
+    //splice
+    const removed = allCharacters.splice(2,3,"Doctor Strange","Scarlet Witch");
+    console.log("Removed: ",removed);
+    console.log("New Array: ",allCharacters);
+    const removed1 = allCharacters.splice(2,0,"Doctor Strange","Scarlet Witch");
+    console.log("Removed: ",removed1);
+    console.log("New Array: ",allCharacters);
+
+    //slice
+    const sliced = allCharacters.slice(5,-1);
+    console.log("Sliced: ",sliced);
+
+    //toString
+    array = [1,2,3,"four","five"];
+    console.log(typeof array);
+    console.log("String representation: ",array.toString());
+    console.log(typeof array.toString());
+    
 }  
 
 function checkdata(){
@@ -73,4 +107,35 @@ function checkdata(){
   console.log(9==="9");
 }
 
-arraysMethods();
+function iterateoverarray(){
+    allCharacters = ["Iron Man", "Spider Man", "Thor","Thanos", "Loki", "Ultron"];
+   // for loop. it works on indexes
+   for (let i = 0; i <=allCharacters.length; i++) {
+       console.log(allCharacters[i]);
+   }
+   console.log("****while loop******");
+   let j = 0;
+   while (j < allCharacters.length) {
+       console.log(allCharacters[j]);
+       j++;
+   }
+   // for  of work on values
+   console.log("****for of loop******");
+   for (const character of allCharacters) {
+       console.log(character);
+   }
+   // for  in works on indexes
+   console.log("****for in loop******");
+   for (const index in allCharacters) {
+       console.log(allCharacters[index]);
+   }
+
+   //forEach works on values
+   console.log("****forEach loop******");
+    allCharacters.forEach((value,index)=>{  
+        console.log(index + ": " + value);
+    });
+}
+
+
+iterateoverarray();
