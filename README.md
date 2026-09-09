@@ -25,3 +25,7 @@ ques1- deisgn program for the calculating the student grade
  35- 50 D 
  leass than 35 fail
 
+ Write a program to converet the sting in the title 
+ case  
+ "Sachin tEnDulkar" ===>  Sachin Tendulkar
+

@@ -13,5 +13,30 @@ function sumofarray(){
 // find the second maximum number in an array
 function maxofarray(){
     const numbers = [1,2,30,4,5,54];
+    let max = numbers[0];
+    for(const number of numbers){
+        if(number>max){
+            max = number;
+        }
+    }
+    console.log(max);
+    
 }
-sumofarray()
+
+function secondmaxofarray(){
+    const numbers = [1,2,30,4,61,54,87,5,54];
+    let max = -Infinity;
+    let secondMax = -Infinity;
+    for(const number of numbers){
+        if(number>max){
+            secondMax = max;
+            max = number;
+        }
+        else if(number>secondMax){
+            secondMax = number;
+        }
+    }
+    console.log("Maximum:", max);
+    console.log("Second Maximum:", secondMax);
+}
+secondmaxofarray()
