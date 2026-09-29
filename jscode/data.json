@@ -1,0 +1,16 @@
+    
+[{
+"employeedata": [{
+ "username": "Arun",
+ "role": "developer",
+ "skills": ["Javascript","Python","SQL"],
+ "experience": 15
+},
+{
+ "username": "Amit",
+ "role": "QA",
+ "skills": ["Java", "Playwright"],
+ "experience": 10
+}
+]
+}]
