@@ -4,7 +4,7 @@
  create using literals or using constructor.
 */
  function stringbasic(){
-// using literals
+// using literals  saves memory
     let str1 = "Sachin";
     let str2 = 'Sachin';
     let str4 = 'SAchin';
@@ -26,8 +26,8 @@
    console.log("Length of string: ",str1.length);
     console.log("Uppercase: ",str1.toUpperCase());
     console.log("Lowercase: ",str1.toLowerCase()); 
-    console.log("Index of 't': ",str1.indexOf('a'));
-    console.log("Index of 'T': ",str1.lastIndexOf('a'));
+    console.log("Index of 'a': ",str1.indexOf('a'));
+    console.log("Index of 'a': ",str1.lastIndexOf('a'));
 
     //concatenation
     let str2 = " is a great cricketer";
