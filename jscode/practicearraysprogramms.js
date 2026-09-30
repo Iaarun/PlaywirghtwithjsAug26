@@ -121,5 +121,63 @@ function insertdataatanyindex(){
     console.log(arr)
 }
 
-insertdataatanyindex()
 // withoutusing inbuilt function
+
+//move zero to end I/p [45,0,5,0,64,0,8] O/p [45,5,64,8,0,0,0]
+
+function moveZeroToEnd(){
+   arr= [45,0,5,0,64,0,8]
+   let index=0
+   for(let i=0; i<arr.length;i++){
+          if(arr[i]!=0){
+              arr[index]= arr[i]
+              index++
+          }
+   }
+    while(index<arr.length){
+        arr[index]=0
+        index++
+    }
+
+    console.log(arr)
+}
+
+function movetozerowithinbuiltfunction(){
+    arr= [45,0,5,0,64,0,8]
+    let nonzero = arr.filter(num => num !=0)
+    console.log(nonzero)
+    let zerocount = arr.length - nonzero.length
+
+    while(zerocount>0){
+        nonzero.unshift(0)
+        zerocount--
+    }
+console.log(nonzero)
+}
+
+/// remove duplicate data from the array i/p [21,12,21,34,15,34,6,21]
+// o/p [21,12,34,15,6]
+
+function removeDuplicatefromArray(){
+  arr=  [21,12,21,34,15,34,6,21]
+    let result=[]
+    for(let i=0; i<arr.length; i++){
+        isDuplicate=false
+        for(let j=0; j<result.length; j++){
+                 if(arr[i]=== result[j]){
+                    isDuplicate=true
+                    break;
+                 }
+        }
+
+        if(!isDuplicate){
+            result[result.length] = arr[i]
+        }
+       
+    }
+     
+    console.log(result)
+
+}
+
+removeDuplicatefromArray()

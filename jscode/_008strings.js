@@ -47,7 +47,7 @@
     console.log(str4.at(0))
     console.log(typeof (str2.at(0)))
     //substring
-    str5= str4.substring(1, str4.length)
+    str5= str4.substring(1, 5)
     console.log(str5)
     //indexof()
     console.log(str4.indexOf('!!!!'))
