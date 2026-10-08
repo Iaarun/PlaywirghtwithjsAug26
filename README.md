@@ -29,3 +29,5 @@ ques1- deisgn program for the calculating the student grade
  case  
  "Sachin tEnDulkar" ===>  Sachin Tendulkar
 
+ create a class named circle, define constrcutor to accept the radius value and calculate the area of circle
+
