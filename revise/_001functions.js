@@ -44,7 +44,7 @@ function add(a,b){
 console.log(add(5,10))
 
 //CONVERT TO ARROW FUNCTION
-//const addArrow = (a,b) => a+b
+const addArrow = (a,b) => a+b
 //console.log(addArrow(5,10))
 
 //FUNCTION EXPRESSION
