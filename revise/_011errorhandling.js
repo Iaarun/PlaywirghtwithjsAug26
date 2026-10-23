@@ -6,7 +6,7 @@ Internal error
  try{
    code  that may potentially throw error
  }catch(){
-   code to handle the error
+   code to handle the errorError
  }finally{
     optional: code that runs irrespective of result (success or error)
  }
@@ -45,11 +45,12 @@ function tryCatchdemo(){
 
 function checkAge(age){
   if(age<6){
-    throw new Error("Age must be equal or greater than 6")
+    throw new ("Age must be equal or greater than 6")
   }else{
     console.log("Admission granted")
   }
 }
+
 function newAdmission(age){
    checkAge(age)
 }

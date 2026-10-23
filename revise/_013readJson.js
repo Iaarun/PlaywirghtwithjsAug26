@@ -2,7 +2,7 @@
 function readingJsonData(){
     const userdata = require("E:\\PLaywrightwithjavascriptaug26\\javascriptaug26\\revise\\userdata.json")
     console.log(JSON.stringify(userdata,null,2))
-    console.log(userdata.students[0].name)
+     console.log(userdata.students[0].name)
     console.log("Total students available: "+userdata.students.length)
     console.log("Object Length is: "+Object.keys(userdata).length)
 
