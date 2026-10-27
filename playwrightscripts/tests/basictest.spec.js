@@ -46,5 +46,33 @@ test("open new tab in the context ",async({page, context})=>{
       await password.fill("standard_user")
       await page.waitForTimeout(2000)
  })
+ test("locate element using xpath", async({page})=>{
+       await page.goto("https://demowebshop.tricentis.com/login")
+       //locate the username field
+      const subscribeBtn =  await page.locator("xpath=/html[1]/body[1]/div[4]/div[1]/div[4]/div[1]/div[3]/div[2]/div[1]/div[2]/input[1]")
+      await subscribeBtn.click()
+      await page.waitForTimeout(2000)
+    
+ })
+ test("check if anyelement is disabled", async({page})=>{
+       await page.goto("https://bonigarcia.dev/selenium-webdriver-java/web-form.html")
+       //locate the username field
+      const disabledInput =  await page.locator("input[name='my-disabled']")
+      if( await disabledInput.isDisabled()){
+        console.log("INput field is disabled")
+      }
+        const readOnlyInput= await page.locator("input[name='my-readonly']")
+         const editable=await readOnlyInput.isEditable()
+         if(!editable){
+            console.log("input field is readonly")
+         }
+      await page.waitForTimeout(2000)
+    
+ })
+
+
+
+
+
 
 
