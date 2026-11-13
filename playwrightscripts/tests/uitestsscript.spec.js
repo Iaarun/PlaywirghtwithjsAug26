@@ -45,3 +45,9 @@ test("Example Browser Navigation commands", async()=>{
 })
 
 
+test("get systemdate and time",async()=>{
+    const date=  new Date().getFullYear()+1
+    console.log("Current date and time is: "+date)
+})
+
+

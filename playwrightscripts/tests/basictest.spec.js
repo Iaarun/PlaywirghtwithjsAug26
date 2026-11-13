@@ -190,6 +190,132 @@ test("open new tab in the context ",async({page, context})=>{
        await page.mouse.up()
       await page.waitForTimeout(2000)
  })
+ test("scroll on page till a specific element", async({page})=>{
+       await page.goto("https://demowebshop.tricentis.com/")
+      const addtocart5 =  await page.locator("(//input[@value='Add to cart'])[5]")
+      await addtocart5.scrollIntoViewIfNeeded()
+      await page.waitForTimeout(2000)
+ })
+ test("scroll till the bottom of the page", async({page})=>{
+       await page.goto("https://jqueryui.com/droppable/")
+       // scroll till the bottom of the page
+      await page.evaluate(()=> window.scrollTo(0,document.body.scrollHeight))
+      await page.waitForTimeout(2000)
+ })
+ test("scroll using mouse wheel", async({page})=>{
+       await page.goto("https://jqueryui.com/droppable/")
+       // scroll till the bottom of the page using mouse wheel
+      await page.mouse.wheel(0,5000)
+      await page.waitForTimeout(3000)
+ })
+ test("handle infinite scroll", async({page})=>{
+       await page.goto("https://bonigarcia.dev/selenium-webdriver-java/infinite-scroll.html")
+       let previousHeight= 0
+       let currentPageHeight =  await page.evaluate(()=> document.body.scrollHeight) //10
+       let maxscrolls = 5
+       let scrollcount = 0
+       while(previousHeight < currentPageHeight && scrollcount < maxscrolls){
+          previousHeight = currentPageHeight
+          await page.evaluate(()=> window.scrollTo(0,document.body.scrollHeight))
+          await page.waitForTimeout(1000)
+          currentPageHeight =  await page.evaluate(()=> document.body.scrollHeight) //20
+         scrollcount++ 
+       }
+ })
+ test("handle alert dialog", async({page})=>{
+       await page.goto("https://bonigarcia.dev/selenium-webdriver-java/dialog-boxes.html")
+      const launchalert=  await page.locator("#my-alert")
+      await page.on('dialog', async dialog=>{
+          const text =   await dialog.message()
+          console.log(`Alert text is: ${text}`)
+          await dialog.accept()
+      })
+
+     await launchalert.click()
+     await page.waitForTimeout(2000)
+
+ })
+ test("handle confirm alert  dialog", async({page})=>{
+       await page.goto("https://bonigarcia.dev/selenium-webdriver-java/dialog-boxes.html")
+      const launchalert=  await page.locator("#my-confirm")
+      await page.on('dialog', async dialog=>{
+          const text =   await dialog.message()
+          console.log(`Confirm text is: ${text}`)
+          //await dialog.accept()
+          await dialog.dismiss()
+      })
+
+     await launchalert.click()
+    const message=  await page.locator("#confirm-text").textContent()
+     console.log(`Confirm message is: ${message}`)
+     await page.waitForTimeout(2000)
+
+ })
+ test("handle prompt alert  dialog", async({page})=>{
+       await page.goto("https://bonigarcia.dev/selenium-webdriver-java/dialog-boxes.html")
+      const launchalert=  await page.locator("#my-prompt")
+      await page.on('dialog', async dialog=>{
+          const text =   await dialog.message()
+          console.log(`Prompt text is: ${text}`)
+         // await dialog.accept("I am sending prompt test data")
+          await dialog.dismiss()
+      })
+
+     await launchalert.click()
+    const message=  await page.locator("#prompt-text").textContent()
+     console.log(`Prompt message is: ${message}`)
+     await page.waitForTimeout(2000)
+
+ })
+ test("handle calender by typing date", async({page})=>{
+       await page.goto("https://bonigarcia.dev/selenium-webdriver-java/web-form.html")
+      const calender=  await page.locator("//input[@name='my-date']")
+      await calender.click()
+      await page.keyboard.type("2024-06-20")
+      await page.keyboard.press("Enter")
+      await page.waitForTimeout(2000)
+
+      // await calender.fill("2024-06-20")
+      await page.locator("//button[normalize-space()='Submit']").click()
+      
+     await page.waitForTimeout(4000)
+
+ })
+ test("handle calender by selecting the date", async({page})=>{
+       await page.goto("https://bonigarcia.dev/selenium-webdriver-java/web-form.html")
+      const nextyear =   new Date().getFullYear()+1;
+      const targetyear = nextyear.toString()
+      const targetmonth = "June"
+      const targetdate = "20"
+
+      await page.locator("//input[@name='my-date']").click()
+
+      let currentMothyear=  await page.locator("//div[@class='datepicker-days']/table[1]/thead/tr[2]/th[2]").textContent()
+      console.log(`Current month and year is: ${currentMothyear}`)
+      let date = currentMothyear.split(" ")
+      let month = date[0].trim()
+      let year = date[1].trim().toString()
+      console.log(`Current month is: ${month} and year is: ${year}`)
+      while(true){
+        if( year === targetyear && month === targetmonth ){
+            break;
+        }
+       await page.locator("//div[@class='datepicker-days']/table[1]/thead/tr[2]/th[3]").click()
+       currentMothyear=  await page.locator("//div[@class='datepicker-days']/table[1]/thead/tr[2]/th[2]").textContent()
+       date = currentMothyear.split(" ")
+       month = date[0].trim()
+       year = date[1].trim().toString()
+      }
+ 
+
+      await page.waitForTimeout(2000)
+      await page.locator(`//div[@class='datepicker-days']/table[1]/tbody/tr/td[normalize-space()='${targetdate}']`).click()
+      
+     await page.waitForTimeout(4000)
+
+ })
+
+
 
 
 
