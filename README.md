@@ -33,6 +33,8 @@ ques1- deisgn program for the calculating the student grade
 
 Automate testcase
 ===========================================
+Application URL: https://demowebshop.tricentis.com/
+
 "1. Click on the 'Register' link in the top navigation header.
 2. Select the 'Gender' radio button (Male).
 3. Enter 'First Name', 'Last Name', and a unique 'Email' address.
