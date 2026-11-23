@@ -23,3 +23,9 @@ test.describe('Add to cart test', () => {
     }
   });
 });
+/*
+fixtures: resusable code that is used as setup and teardown mechanism for the testcase.
+builtin: page, browser, context, request
+
+
+*/ 
