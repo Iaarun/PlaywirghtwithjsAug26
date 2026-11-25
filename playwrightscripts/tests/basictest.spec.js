@@ -158,7 +158,7 @@ test("open new tab in the context ",async({page, context})=>{
       await rightclickbtn.click({button: "right"})
       await page.waitForTimeout(2000)
  })
- test("handle frames ",{tag:'@smoke'}, async({page})=>{
+ test("handle frames ",{tag:'@config'}, async({page})=>{
        await page.goto("https://jqueryui.com/draggable/")
       const frames=  await page.frameLocator(".demo-frame")
       const drag=  await frames.locator("#draggable")
